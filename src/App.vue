@@ -1,21 +1,24 @@
 <template>
-  <div id="msg">{{msg}}
-    <div id="msg2">1231231232131</div>
-    <img src="./assets/image/index.jpg" alt="">
+  <div id="app">
+    <header>
+      <router-link to='/home'>Home</router-link>
+      <router-link to='/categories'>categories</router-link>
+    </header>
+    <!-- 对应组件的内容渲染到router-view中 -->
+    <router-view></router-view>
   </div>
 </template>
 
-
-<script>
-export default {
-  data() {
-    return {
-      msg: "hello! webpack4-vue-demo!"
-    };
+<script type="text/javascript">
+  export default {
+    data() {
+      return {
+        
+      }
+    }
   }
-};
 </script>
 
-
-<style>
+<style lang="stylus">
+  
 </style>

@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import './stylus/base.styl'
+import router  from './router/router'
 
 
 new Vue({
     el: "#root",
+    router,
     render:h=>h(App)
 })

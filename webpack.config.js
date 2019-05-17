@@ -110,8 +110,6 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
       filename: "css/[name].css",
       chunkFilename: "css/[id].css"
     })
@@ -124,6 +122,6 @@ module.exports = {
     contentBase: path.resolve(__dirname, "dist"),
     host: "localhost",
     compress: true,
-    port: 13167
+    port: 1314
   }
 };
