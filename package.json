@@ -1,11 +1,11 @@
 {
   "name": "webpack-bolg",
   "version": "1.0.0",
-  "description": "",
+  "description": "ChenZiAn",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open --history-api-fallback",
     "dev": "set type=dev&webpack-dev-server",
     "build": "set type=pro&webpack"
   },

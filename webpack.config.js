@@ -52,7 +52,7 @@ module.exports = {
       },
       // stylus预处理css
       {
-        test: /\.styl$/,
+        test: /\.styl(us)?$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
           "css-loader",
@@ -89,7 +89,6 @@ module.exports = {
       }
     ]
   },
-
   plugins: [
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
@@ -117,6 +116,22 @@ module.exports = {
   output: {
     filename: "js/[name].bundle.js",
     path: path.resolve(__dirname, "dist")
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'SRC': resolve('src'),
+      'STATIC': resolve('static'),
+      'IMAGES': resolve('src/assets/images'),
+      'VIEWS': resolve('src/views'),
+      'STYLUS': resolve('src/stylus'),
+      'COMMON': resolve('src/common'),
+      'API': resolve('src/api'),
+      'UTIL': resolve('src/util'),
+      'STORE': resolve('src/store'),
+      'DATA': resolve('src/data'),
+      'MIXINS': resolve('src/mixins')
+    }
   },
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
