@@ -7,11 +7,11 @@
 </template>
 
 <script type="text/javascript">
-  export default {
-    data() {
-      return {
-        msg: '我是Home组件'
-      }
+export default {
+  data () {
+    return {
+      msg: '我是Home组件'
     }
   }
+}
 </script>

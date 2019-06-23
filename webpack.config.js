@@ -1,13 +1,14 @@
 // 核心
-const webpack = require("webpack");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+// eslint-disable-next-line no-unused-vars
+const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 辅助
-const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 // 环境
 // if(process.env.type=="dev"){//本地环境
@@ -20,34 +21,39 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 //   }
 // }
 
-function resolve(dir) {
-  return path.join(__dirname, dir);
+function resolve (dir) {
+  return path.join(__dirname, dir)
 }
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    app: "./src/main.js"
+    app: './src/main.js'
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: "./dist"
+    contentBase: path.resolve(__dirname, 'dist'),
+    overlay: {
+      errors: true,
+      warnings: true
+    },
+    host: '0.0.0.0',
+    compress: true,
+    port: 1314
   },
   module: {
     rules: [
       // vue处理
       {
         test: /\.vue$/,
-        loader: "vue-loader"
+        loader: 'vue-loader'
       },
       // css处理
       {
         test: /\.css$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          "css-loader"
+          { loader: MiniCssExtractPlugin.loader },
+          'css-loader'
         ]
       },
       // stylus预处理css
@@ -55,9 +61,9 @@ module.exports = {
         test: /\.styl(us)?$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          "css-loader",
-          "postcss-loader",
-          "stylus-loader"
+          'css-loader',
+          'postcss-loader',
+          'stylus-loader'
         ]
       },
       // 图片等资源loader配置
@@ -65,9 +71,9 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              outputPath: "images/"
+              outputPath: 'images/'
             }
           }
         ]
@@ -75,17 +81,27 @@ module.exports = {
       // 处理字体
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader"]
+        use: ['file-loader']
       },
       // 处理ES5
       {
         test: /\.(jsx|js)$/,
         use: [
           {
-            loader: "babel-loader"
+            loader: 'babel-loader'
           }
         ],
         exclude: /node_modules/
+      },
+      // 使用ESlint
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
       }
     ]
   },
@@ -93,8 +109,8 @@ module.exports = {
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "./index.html",
+      filename: 'index.html',
+      template: './index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -109,13 +125,13 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: "css/[name].css",
-      chunkFilename: "css/[id].css"
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css'
     })
   ],
   output: {
-    filename: "js/[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
+    filename: 'js/[name].bundle.js',
+    path: path.resolve(__dirname, 'dist/static')
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -132,11 +148,5 @@ module.exports = {
       'DATA': resolve('src/data'),
       'MIXINS': resolve('src/mixins')
     }
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
-    host: "localhost",
-    compress: true,
-    port: 1314
   }
-};
+}

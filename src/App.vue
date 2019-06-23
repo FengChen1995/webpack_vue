@@ -3,39 +3,51 @@
     <div class="content-wrap">
       <!-- 博客头部组件 -->
       <m-header />
-      <header>
-        <router-link to='/home' class="home">Home</router-link>
-        <router-link to='/categories'>categories</router-link>
-      </header>
-      <!-- 对应组件的内容渲染到router-view中 -->
-      <router-view></router-view>
+      <!-- 内容渲染组件 -->
+      <div class="content-view">
+        <!-- 对应组件的内容渲染到router-view中 -->
+        <router-view />
+      </div>
+      <m-footer />
     </div>
   </div>
 </template>
 
-
 <script type="text/javascript">
 import mHeader from 'COMMON/mHeader/mHeader'
+import mFooter from 'COMMON/mFooter/mFooter'
 export default {
   name: 'app',
   components: {
-    mHeader
+    mHeader,
+    mFooter
   },
-  data() {
+  data () {
     return {
+      data: ''
     }
   }
 }
 </script>
 
-
-<style lang="stylus" src="STYLUS/reset.styl"></style>
+<style lang="stylus" src="STYLUS/main.styl"></style>
 <style lang="stylus">
-#appIndex 
+#appIndex
   width 100%
   min-height 100%
   min-width 320px
   display flex
   flex-direction: row
   position absolute
+
+.content-wrap
+  width 100%
+  display flex
+  flex-direction column
+  justify-content flex-start
+  align-items center
+
+.content-view
+  max-width 1000px
+  min-width 320px
 </style>

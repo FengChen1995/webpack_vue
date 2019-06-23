@@ -1,5 +1,5 @@
-import home from '../view/blog/home/Home.vue';
-import Categories from '../view/blog/categories/Categories.vue';
+import home from '../view/blog/home/Home.vue'
+import Categories from '../view/blog/categories/Categories.vue'
 const routes = [
   {
     path: '/home',
