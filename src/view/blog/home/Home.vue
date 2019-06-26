@@ -1,6 +1,6 @@
 
 <template>
-  <div class="home-container">
+  <div id="home">
     <h1>欢迎来到Home</h1>
     <p>{{msg}}</p>
   </div>
@@ -15,3 +15,10 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  #home
+    position: relative;
+    padding: 30px 10px;
+    min-height: 100px;
+</style>

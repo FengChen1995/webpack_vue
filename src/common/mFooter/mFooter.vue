@@ -31,6 +31,9 @@ export default {
     flex-direction column
     justify-content center
     color $color-grey
+    p
+      margin: 2px 0
+      user-select none
     .beian-jump
       text-decoration none
       color $color-grey
