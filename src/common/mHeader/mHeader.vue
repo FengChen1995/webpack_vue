@@ -125,7 +125,7 @@ export default {
     selectTab (tab) {
       console.log(tab.to)
       this.toggle()
-      this.$router.push(tab.to)
+      this.$router.push({ name: tab.to })
     },
     toggle () {
       console.log(`1`, this.showMobileTabs)

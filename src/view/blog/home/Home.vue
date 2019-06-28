@@ -1,16 +1,56 @@
 
 <template>
   <div id="home">
-    <h1>欢迎来到Home</h1>
-    <p>{{msg}}</p>
+    <template v-for="(item,index) in articleList">
+      <article-card :article="item" :key="index" @articleClick="goToArticle" />
+    </template>
   </div>
 </template>
 
 <script type="text/javascript">
+import articleCard from 'COMMON/articleCard/articleCard'
 export default {
+  name: 'home',
+  components: {
+    articleCard
+  },
   data () {
     return {
-      msg: '我是Home组件'
+      articleList: [
+        {
+          articleId: 1,
+          articleTitle: '我是第一篇文章',
+          articleMainMap: 'https://qiniu.chenfeng1995.cn/young-woman-using-phone-to-take-a-picture-860x573.jpg',
+          tags: [{ name: '标签1', tagId: 111 }, { name: '标签2', tagId: 112 }],
+          articleDesc: '我是第一篇文章的副标题',
+          categorieId: 11,
+          categorieName: '文档类别',
+          creationTime: '1561619970000',
+          watches: 13
+        },
+        {
+          articleId: 2,
+          articleTitle: '我是第二篇文章',
+          articleMainMap: 'https://qiniu.chenfeng1995.cn/47812355881_f74329ec64_o-860x1147.jpg',
+          tags: [{ name: '标签1', tagId: 111 }, { name: '标签2', tagId: 112 }],
+          articleDesc: '我是第二篇文章的副标题',
+          categorieId: 12,
+          categorieName: '分类名称',
+          creationTime: '1561619970000',
+          watches: 5412
+        }
+      ]
+    }
+  },
+  methods: {
+    goToArticle (articleId) {
+      console.log(articleId)
+      this.$router.push({
+        name: 'article',
+        query: {
+          id: articleId
+        }
+      })
     }
   }
 }

@@ -76,7 +76,8 @@ export default {
   display flex
   flex-direction: row
   position absolute
-
+  ::selection{background:#262a30;color:#FFF;}
+  ::-moz-selection{background:#262a30;color:#FFF;}
 .content-wrap
   width 100%
   display flex
