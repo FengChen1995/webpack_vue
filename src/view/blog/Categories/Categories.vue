@@ -4,7 +4,7 @@
     <p class="title">分类</p>
     <div class="categories-container">
       <template v-for="(item, index) in categoriesList">
-        <div class="container-btn category-btn" :key="index" @click="goToArticleList(1,item.categoryId)">
+        <div class="container-btn category-btn" :key="index" @click="goToArticleList('category',item.categoryId)">
           {{item.categoryName}}
           <span class="category-btn-num">{{item.categoryNum}}篇</span>
         </div>
@@ -13,7 +13,7 @@
     <p class="title">标签</p>
     <div class="categories-container">
       <template  v-for="(item, index) in tagsList" >
-        <div class="container-btn tag-btn" :key="index" @click="goToArticleList(2,item.tagId)">
+        <div class="container-btn tag-btn" :key="index" @click="goToArticleList('tag',item.tagId)">
           {{item.tagName}}
         </div>
       </template>
@@ -90,11 +90,13 @@ export default {
   },
   methods: {
     goToArticleList (type, id) {
-      if (type === 1) {
-        console.log('分类列表文章', id)
-      } else if (type === 2) {
-        console.log('标签列表文章', id)
-      }
+      this.$router.push({
+        name: 'list',
+        query: {
+          type,
+          id: id
+        }
+      })
     }
   }
 }
@@ -103,6 +105,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~STYLUS/color.styl'
 .categories-wrap
+  animation: show .8s
   padding 30px 10px
   .title
     text-align center
@@ -160,4 +163,15 @@ export default {
           transform: scaleX(1)
           transition-duration: .2s
           transition-timing-function: ease
+
+@keyframes show {
+  from {
+    margin-top: -10px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
 </style>

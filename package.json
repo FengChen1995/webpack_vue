@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --history-api-fallback",
     "dev": "set type=dev&webpack-dev-server",
-    "build": "set type=pro&webpack"
+    "build": "set type=pro&webpack -p"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
@@ -39,11 +40,13 @@
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.1.2",
     "webpack": "^4.31.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
     "dayjs": "^1.8.14",
+    "element-theme-chalk": "^2.10.1",
     "element-ui": "^2.10.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.2",

@@ -59,7 +59,6 @@ export default {
   @media (max-width: 768px)
     min-height: 285.5px
     padding: 10px
-  transition all .5s
   position: relative
   .article-cover
     position: relative
