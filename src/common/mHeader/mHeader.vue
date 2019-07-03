@@ -1,7 +1,7 @@
 <template>
   <div class="m-header-wrap">
     <div class="m-header-navbar" :style="{height: isPc? '90px':'60px'}">
-      <div class="header-logo" :style="{'justify-content': isPc ? 'space-between' : 'center','padding': isPc ? '25px' : '0px'}" >
+      <div class="header-logo" @click="tapLogo" :style="{'justify-content': isPc ? 'space-between' : 'center','padding': isPc ? '25px' : '0px'}" >
         <p class="line" v-if="isPc"></p>
         <p class="blog-name">ChenZiAn</p>
         <p class="line" v-if="isPc"></p>
@@ -131,6 +131,14 @@ export default {
       console.log(`1`, this.showMobileTabs)
       this.showMobileTabs = !this.showMobileTabs
       this.toggleLineData = this.showMobileTabs ? this.lineStyle.closeLineData : this.lineStyle.normalLineData
+    },
+    tapLogo () {
+      console.log(this.isPc)
+      if (this.isPc) {
+        this.$router.push({ name: 'home' })
+      } else {
+        this.toggle()
+      }
     }
   }
 }
