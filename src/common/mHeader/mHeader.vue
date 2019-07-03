@@ -2,9 +2,9 @@
   <div class="m-header-wrap">
     <div class="m-header-navbar" :style="{height: isPc? '90px':'60px'}">
       <div class="header-logo" @click="tapLogo" :style="{'justify-content': isPc ? 'space-between' : 'center','padding': isPc ? '25px' : '0px'}" >
-        <p class="line" v-if="isPc"></p>
+        <div class="line" v-if="isPc"></div>
         <p class="blog-name">ChenZiAn</p>
-        <p class="line" v-if="isPc"></p>
+        <div class="line" v-if="isPc"></div>
       </div>
       <header-tab-view v-if="isPc" :tabs="tabs" @tab-click="selectTab" />
       <div class="toggle" v-if="!isPc" @click="toggle">

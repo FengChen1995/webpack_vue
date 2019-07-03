@@ -170,5 +170,10 @@ module.exports = {
       'DATA': resolve('src/data'),
       'MIXINS': resolve('src/mixins')
     }
+  },
+  externals: {
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'vuex': 'Vuex'
   }
 }
