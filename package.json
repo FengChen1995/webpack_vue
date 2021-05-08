@@ -51,7 +51,7 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-html": "^5.0.5",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "vue-loader": "^15.7.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
